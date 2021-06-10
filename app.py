@@ -13,6 +13,8 @@ def returnMeaning(word):
         return data[word]
     elif word.title() in data: #if user entered "delhi" this will check for "Delhi" as well.
         return data[word.title()]
+    elif word.upper() in data: #in case user enters words like USA or NATO
+        return data[word.upper()]
     elif len(get_close_matches(word,data.keys()))>0:
         yn=input("Did you mean %s instead? Enter Y if yes or N if No:" % get_close_matches(word,data.keys())[0])
         if yn == "Y" or yn == "y":
