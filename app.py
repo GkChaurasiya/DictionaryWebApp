@@ -11,6 +11,8 @@ def returnMeaning(word):
     word=word.lower()
     if word in data:
         return data[word]
+    elif word.title() in data: #if user entered "delhi" this will check for "Delhi" as well.
+        return data[word.title()]
     elif len(get_close_matches(word,data.keys()))>0:
         yn=input("Did you mean %s instead? Enter Y if yes or N if No:" % get_close_matches(word,data.keys())[0])
         if yn == "Y" or yn == "y":
