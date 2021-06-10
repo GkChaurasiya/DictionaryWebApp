@@ -14,7 +14,7 @@ def returnMeaning(word):
     elif len(get_close_matches(word,data.keys()))>0:
         yn=input("Did you mean %s instead? Enter Y if yes or N if No:" % get_close_matches(word,data.keys())[0])
         if yn == "Y" or yn == "y":
-            return word[get_close_matches(word,data.keys())[0]]
+            return data[get_close_matches(word,data.keys())[0]]
         elif yn == "N" or yn == "n":
             return "The Word does not exist. Please double check it."
         else:
@@ -25,7 +25,12 @@ def returnMeaning(word):
 
 word=input("Enter word:")
 
-print(returnMeaning(word))
+output=returnMeaning(word)
+if type(output) == list:
+    for item in output:
+        print(item)
+else:
+    print(output)
 
     
         
